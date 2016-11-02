@@ -1,0 +1,252 @@
+#######                                                                  #
+#                   The Kurolox's Rice n' stuff vX.Y                     #
+#                                                                        #
+#    "Who needs versioning when you won't update it anyways?" -Kurolox   #
+#                                                                        #
+#                                                                 ########
+
+
+# Remember to replace the Windows key with a custom-made key of your preference (or use a sticker, if you are a pussy)
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+font pango:System San Francisco Display 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position, BUT WHY WOULD YOU WANT TO USE THE MOUSE IN I3?
+floating_modifier $mod
+
+# start a terminal (Using mate because I'm too bad for xterm or anything like that)
+bindsym $mod+Return exec mate-terminal
+
+# kill focused window, or the alt+f4 for pros
+bindsym $mod+Shift+q kill
+
+# start rofi (or use dmenu if you don't have any taste like me, but I use rofi because I'm not that bad)
+bindsym $mod+d exec rofi -show run -lines 5 -width 40 -padding 0 -hide-scrollbar -eh 2 -bw 5 -font "Terminus 18" -run-list-command ". ~/Documents/scripts/alias.sh" -run-command "/bin/bash -i -c '{cmd}'" -rnow
+
+# change focus, but good luck knowing which windows is focused without borders, as you will see later!
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# Go to full-screen with whatever you have in focus (In a world with tiles and gaps, who needs alt plus tab?© [I made this accidentally, but now is copyrighted. Copyright© Kurolox 2016-2016])
+bindsym $mod+f fullscreen toggle
+
+# change container layout (I should remove this or something. I never use stacked or anything because, ya know, 10 workspaces... And I get accidentally into stack mode and I don't know how to exit it)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating (Pussy warning: This command installs Unity and schedules your disk partitioning for installing Windows next day. Don't float.)
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows (Same as before, but this one installs gnome rather than Unity.)
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3
+bindsym $mod+Shift+r restart
+
+# exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (unfortunately, you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# switch to workspaces (I dare you to use the mouse for this)
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+#####
+#  Custom things: Extra binds, ricing purposes, fixes, etc...
+#
+
+# Screenshots and video capture with the prt scr key. Seriously, if there was only an alternative that does exactly what xfce4-screenshooter --region -i does but automatically pastes the imgur link to your clipboard, I'd kill for it...
+bindsym Print exec xfce4-screenshooter --region -i
+
+# Vokoscreen for video recording. But it's shit. Don't use it.
+bindsym Shift+Print exec vokoscreen
+for_window [class="vokoscreen"] floating enable
+
+# Setting each workspace icon for ricing purposes. You will need awesomefont for it to work, otherwise enjoy the random squares which may or may not have letters and numbers inside!
+set $workspace1 "1 "
+set $workspace2 "2 "
+set $workspace3 "3 "
+set $workspace4 "4 "
+set $workspace5 "5 "
+set $workspace6 "6 "
+set $workspace7 "7 "
+set $workspace8 "8 "
+set $workspace9 "9 "
+set $workspace10 "10 "
+
+# Wallpaper
+exec --no-startup-id nitrogen --restore
+
+# Gaps and no borders
+smart_gaps on
+smart_borders on
+for_window [class="^.*"] border none
+for_window [class="chromium"] border none
+gaps inner 12
+gaps outer 25
+
+#####
+#   Colors
+#
+
+set $bg-color 	         #2359ce
+set $transparent         #00000000
+set $inactive-bg-color   #111111
+set $text-color          #fafaff
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #0000ff
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+
+
+
+#####
+#   i3 Bar (Needs i3blocks)
+#
+
+
+bar {
+    position top
+    colors {
+    background #282B34
+    }
+    status_command i3blocks -c /home/kuro/i3blocks/config
+}
+
+#####
+# Fixes
+#
+
+popup_during_fullscreen leave_fullscreen
+exec setxkbmap es
+exec xrandr --output DVI-I-1 --primary --auto --right-of HDMI-0 --output HDMI-0 --mode 1280x720
+bindsym $mod+shift+p move workspace to output right
+bindsym $mod+shift+o move workspace to output left
+
+
+
+#####
+#   FOR MORE THAN ONE SCREEN: Separates the workspaces and gives 5 to each screen. Comment or remove (or just leave it) if you use one screen.
+#
+workspace $workspace6 output HDMI-0
+workspace $workspace7 output HDMI-0
+workspace $workspace8 output HDMI-0
+workspace $workspace9 output HDMI-0
+workspace $workspace10 output HDMI-0
+workspace $workspace1 output DVI-I-1
+workspace $workspace2 output DVI-I-1
+workspace $workspace3 output DVI-I-1
+workspace $workspace4 output DVI-I-1
+workspace $workspace5 output DVI-I-1
+
+
+#####
+#   Autoexecs - Because launching stuff at startup is FUN!
+#
+exec i3-msg 'workspace $workspace1; exec chromium'
+exec i3-msg 'workspace $workspace2; exec mate-terminal'
+exec i3-msg 'workspace $workspace9; exec enpass'
+exec discord-canary
+exec steam
+exec atom
+exec hexchat
+exec blueman-applet
+exec xset -dpms
+exec xset s off
+exec --no-startup-id compton -cCGb --backend glx --vsync opengl
+
+#force windows to start in a specific workspace
+
+assign [class="TeamSpeak 3"] $workspace7
+assign [class="discord"] $workspace8
+assign [class="Hexchat"] $workspace7
+assign [class="Steam"] $workspace3
+assign [class="Atom"] $workspace2
+
+
