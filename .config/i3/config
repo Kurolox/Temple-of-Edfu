@@ -196,7 +196,7 @@ bar {
     colors {
     background #282B34
     }
-    status_command i3blocks -c ./i3blocks/config
+    status_command i3blocks -c ~/Temple-of-Edfu/.config/i3/i3blocks/config
 }
 
 #####
@@ -233,7 +233,7 @@ exec i3-msg 'workspace $workspace1; exec chromium'
 exec i3-msg 'workspace $workspace2; exec mate-terminal'
 exec i3-msg 'workspace $workspace9; exec enpass'
 exec discord-canary
-exec steam
+exec sleep 10 && steam
 exec atom
 exec hexchat
 exec blueman-applet

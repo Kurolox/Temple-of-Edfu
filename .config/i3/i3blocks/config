@@ -1,91 +1,78 @@
-# defaults
-separator_block_width=16
-color=#ffffff
-urgent_color=#47a8e9
-command=$HOME/.config/i3/i3blocks/blocks/$BLOCK_NAME
+# We use the global settings as a shortcut to define our own separator.
+# Based on the default i3blocks config file.
 
+#full_text=][
+full_text=
+align=center
+color=#F0FFFF
+separator=false
+separator_block_width=5
 
-[mediaplayer]
-interval=2
-signal=11
-urgent_color=#ffffff
-
-
-[pacaur]
-interval=7200
+[Pacman]
 label=
-signal=10
+command=~/i3blocks/i3-blocks-contrib/pacman
+color=#F0FFFF
+interval=1200
 
+[Battery]
+label=
+command=~/i3blocks/i3-blocks-contrib/battery
+color=#F0FFFF
+interval=10
 
-[weather]
-align=right
-interval=1800
-urgent_color=#ffffff
-
-
-[cpu]
-align=center
-interval=3
-label=
-
-
-[memory]
-align=center
-interval=3
-label=
-
-
-[disk-free]
-command=$HOME/.config/i3/i3blocks/blocks/disk-free
-interval=60
-label=
-
-
-[download]
-command=$HOME/.config/i3/i3blocks/blocks/bandwidth rx
-interval=1 # IMPORTANT
-label=
-
-
-[upload]
-command=$HOME/.config/i3/i3blocks/blocks/bandwidth tx
-interval=1 # IMPORTANT
-label=
-
-
-[ethernet]
-command=$HOME/.config/i3/i3blocks/blocks/network
-instance=enp*
-interval=once
-label=
-
-
-[wireless]
-command=$HOME/.config/i3/i3blocks/blocks/network
-instance=wlp*
-interval=once
-label=
-
-
-[battery]
+[Disk]
+label=
+command=~/i3blocks/i3-blocks-contrib/disk
+color=#F0FFFF
 interval=30
 
+[Cpu]
+label=
+command=~/i3blocks/i3-blocks-contrib/cpu
+color=#F0FFFF
+interval=5
 
-[sound]
-align=right
-instance=Master
-interval=once
-signal=11
+[Date]
+label=
+command=~/i3blocks/i3-blocks-contrib/date
+color=#F0FFFF
+interval=30
 
-
-[time]
-label=
-min_width=00:00
-instance=%H:%M
+[Time]
+#label=T
+command=~/i3blocks/i3-blocks-contrib/time
+color=#F0FFFF
 interval=1
+
+[Bandwidth down]
+label=
+command=~/i3blocks/i3-blocks-contrib/bandwidth-down
+color=#F0FFFF
+interval=1
+
+[Memory]
+label=RAM
+command=~/i3blocks/i3-blocks-contrib/memory
+color=#F0FFFF
+interval=3
+
+[Weather]
+command=~/i3blocks/i3-blocks-contrib/weather
+color=#F0FFFF
+interval=20
+
+
+#[Bandwidth up]
+#label=
+#command=~/i3blocks/i3-blocks-contrib/bandwidth-up
+#color=#F0FFFF
+#interval=1
+
+[separator]
+#full_text=]
+full_text=
+align=center
+color=#F0FFFF
 separator=false
+separator_block_width=5
 
-
-[date]
-interval=3600
-instance=%b %d, %G, %A
