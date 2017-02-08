@@ -22,7 +22,8 @@ set encoding=utf-8
 set autowrite
 set termguicolors
 set background=dark
-
+set undofile                  " Maintain undo history between sessions
+set undodir=~/.vim/undodir
 
 " Disable arrow keys
 

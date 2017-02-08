@@ -17,7 +17,7 @@ full=""
 short=""
 status=0
 
-URL='http://www.accuweather.com/en/us/cincinnati-oh/45212/weather-forecast/350126'
+URL='http://www.accuweather.com/en/es/la-cisterniga/47193/weather-forecast/119253_pc'
 SITE="$(curl -s "$URL")"
 
 weather="$(echo "$SITE" | awk -F\' '/acm_RecentLocationsCarousel\.push/{print $14 }'| head -1)"

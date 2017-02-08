@@ -1,78 +1,82 @@
-# We use the global settings as a shortcut to define our own separator.
-# Based on the default i3blocks config file.
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
 
-#full_text=][
-full_text=
-align=center
-color=#F0FFFF
-separator=false
-separator_block_width=5
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+#command=/usr/lib/i3blocks/$BLOCK_NAME
 
-[Pacman]
-label=
-command=~/i3blocks/i3-blocks-contrib/pacman
-color=#F0FFFF
-interval=1200
+command=~/.config/i3/i3blocks/blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+color=#EBDBB4
 
-[Battery]
-label=
-command=~/i3blocks/i3-blocks-contrib/battery
-color=#F0FFFF
-interval=10
-
-[Disk]
-label=
-command=~/i3blocks/i3-blocks-contrib/disk
-color=#F0FFFF
-interval=30
-
-[Cpu]
-label=
-command=~/i3blocks/i3-blocks-contrib/cpu
-color=#F0FFFF
+[audio]
+label=
 interval=5
 
-[Date]
-label=
-command=~/i3blocks/i3-blocks-contrib/date
-color=#F0FFFF
+[bandwidth]
+instance=enp6s0;in
+label=
+interval=1
+
+[bandwidth]
+instance=enp6s0;out
+label=
+interval=1
+
+[load]
+label=
+interval=10
+
+[cpu]
+label=
+interval=2
+
+[temperature]
+instance=Core
+label=
+interval=5
+
+[memory]
+label=
+instance=mem;free
 interval=30
 
-[Time]
-#label=T
-command=~/i3blocks/i3-blocks-contrib/time
-color=#F0FFFF
-interval=1
+[packages]
+label=
+interval=60
 
-[Bandwidth down]
-label=
-command=~/i3blocks/i3-blocks-contrib/bandwidth-down
-color=#F0FFFF
-interval=1
+[space]
+label=
+interval=30
 
-[Memory]
-label=RAM
-command=~/i3blocks/i3-blocks-contrib/memory
-color=#F0FFFF
-interval=3
+[playerctl]
+label=
+instance=rhythmbox
+interval=5
 
-[Weather]
-command=~/i3blocks/i3-blocks-contrib/weather
-color=#F0FFFF
-interval=20
-
-
-#[Bandwidth up]
-#label=
-#command=~/i3blocks/i3-blocks-contrib/bandwidth-up
-#color=#F0FFFF
-#interval=1
-
-[separator]
-#full_text=]
-full_text=
-align=center
-color=#F0FFFF
-separator=false
-separator_block_width=5
+[datetime]
+label=
+interval=5
 
