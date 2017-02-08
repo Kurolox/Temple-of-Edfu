@@ -5,3 +5,5 @@ i3-gaps
 playerctl
 awesomefont
 nitrogen
+zsh
+antigen
