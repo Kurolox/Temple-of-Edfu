@@ -192,13 +192,14 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 bar {
     position top
+    tray_output none
     colors {
     background #282828
     separator #282828
     active_workspace #282828 #ebdbb2 #282828
     focused_workspace #ebdbb2 #ebdbb2 #282828
     inactive_workspace #282828 #282828 #ebdbb2
-    urgent_workspace #88888888 #08080888 #EA4C59bb
+    urgent_workspace #fe8019 #fe8019 #282828
     }
     status_command i3blocks -c ~/.config/i3/i3blocks/config
 }
