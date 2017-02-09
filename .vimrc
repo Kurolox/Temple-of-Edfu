@@ -54,10 +54,6 @@ let g:gruvbox_italic=1
 let g:airline_theme="gruvbox"
 let g:airline_powerline_fonts = 1
 
-" Theme
-
-colorscheme gruvbox
-
 " Vundle
 call vundle#begin()
 Plugin 'tpope/vim-fugitive'
@@ -69,3 +65,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-dispatch'
 call vundle#end() 
+
+" Theme
+
+colorscheme gruvbox
+
+
