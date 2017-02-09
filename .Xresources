@@ -1,11 +1,9 @@
-! rofi bullshit 
-! bg fg bgalt hlbg hlfg
-!-----------------------------------
+! Rofi config
 rofi.color-enabled: true
-rofi.color-normal: #282b34, #f3f4f5, #282b34, #1793d1, #f3f435
-rofi.color-urgent: #1f222d, #f3f4f5, #1f222d, #1f222d, #7780a1
-rofi.color-active: #1f222d, #f3f4f5, #1f222d, #1f222d, #7780a1
-rofi.color-window: #282b34, #282b34
+rofi.color-normal: #282828, #ebdbb2, #282828, #504945, #ccbd9c
+rofi.color-urgent: #1f222d, #ebdbb2, #1f222d, #1f222d, #7780a1
+rofi.color-active: #1f222d, #ebdbb2, #1f222d, #1f222d, #7780a1
+rofi.color-window: #282828, #282828
 rofi.separator-style: solid
 
 

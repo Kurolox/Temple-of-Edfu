@@ -22,7 +22,7 @@ bindsym $mod+Return exec mate-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (or use dmenu if you don't have any taste like me, but I use rofi because I'm not that bad)
-bindsym $mod+d exec rofi -show run -lines 5 -width 40 -padding 0 -hide-scrollbar -eh 2 -bw 5 -font "Terminus 18" -run-list-command ". ~/Documents/scripts/alias.sh" -run-command "/bin/bash -i -c '{cmd}'" -rnow
+bindsym $mod+d exec rofi -show run -lines 8 -width 35 -padding 0 -hide-scrollbar -bw 10 -font "xos4 Terminus 16" -rnow
 
 # change focus, but good luck knowing which windows is focused without borders, as you will see later!
 bindsym $mod+j focus left
