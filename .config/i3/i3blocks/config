@@ -36,12 +36,12 @@ label=
 interval=5
 
 [bandwidth]
-instance=enp6s0;in
+instance=wlp8s0;in
 label=
 interval=1
 
 [bandwidth]
-instance=enp6s0;out
+instance=wlp8s0;out
 label=
 interval=1
 
@@ -71,9 +71,9 @@ interval=60
 label=
 interval=30
 
-[playerctl]
-label=
-instance=rhythmbox
+[battery]
+label=
+instance=0
 interval=5
 
 [datetime]

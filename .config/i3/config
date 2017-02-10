@@ -239,7 +239,7 @@ exec i3-msg 'workspace $workspace1; exec chromium'
 exec i3-msg 'workspace $workspace2; exec mate-terminal'
 exec i3-msg 'workspace $workspace9; exec enpass'
 exec discord-canary
-exec steam-native
+#exec steam-native
 exec hexchat
 exec blueman-applet
 exec --no-startup-id compton -cCGb --backend glx --vsync opengl

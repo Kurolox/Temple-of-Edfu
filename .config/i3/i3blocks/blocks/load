@@ -2,7 +2,7 @@
 
 INSTANCE="${BLOCK_INSTANCE:-1}"
 
-URGENT_VALUE=400
+URGENT_VALUE=200
 
 LOAD=$(cat /proc/loadavg | awk -F ' ' '{print $'"${INSTANCE}"'}')
 if [[ "${LOAD}" != "" ]]; then
