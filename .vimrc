@@ -57,17 +57,24 @@ let g:airline_powerline_fonts = 1
 call vundle#begin()
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-dispatch'
+Plugin 'davidhalter/jedi-vim'
 call vundle#end() 
+
+" Syntastic - Syntax checking
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Theme
 
 colorscheme gruvbox
 syntax on                     " Enable syntax highlighting
-
 
