@@ -1,6 +1,5 @@
 " Basics
 
-syntax on                     " Enable syntax highlighting
 filetype off                  " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
@@ -69,5 +68,6 @@ call vundle#end()
 " Theme
 
 colorscheme gruvbox
+syntax on                     " Enable syntax highlighting
 
 
