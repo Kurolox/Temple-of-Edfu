@@ -55,14 +55,11 @@ let g:airline_powerline_fonts = 1
 
 " Vundle
 call vundle#begin()
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'davidhalter/jedi-vim'
+Plugin 'valloric/youcompleteme'
 call vundle#end() 
 
 " Syntastic - Syntax checking

@@ -1,6 +1,5 @@
 # I believe it needs antigen from AUR in order to work. Otherwise, source the correct antigen.zsh.
-source /usr/share/zsh/scripts/antigen/antigen.zsh
-
+source /usr/share/zsh/share/antigen.zsh 
 # test load the oh-my-zsh's library.
 antigen use oh-my-zsh
 

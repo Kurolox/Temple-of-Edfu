@@ -141,7 +141,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 #
 
 # Screenshots and video capture with the prt scr key. Seriously, if there was only an alternative that does exactly what xfce4-screenshooter --region -i does but automatically pastes the imgur link to your clipboard, I'd kill for it...
-bindsym Print exec xfce4-screenshooter -r -i
+bindsym Print exec python /mnt/storHDD/Programming/Python/Eye-Of-Horus/main.py
 
 # Setting each workspace icon for ricing purposes. You will need awesomefont for it to work, otherwise enjoy the random squares which may or may not have letters and numbers inside!
 set $workspace1 "1 "
@@ -156,7 +156,8 @@ set $workspace9 "9 "
 set $workspace10 "10 "
 
 # Wallpaper
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --bg-fill ~/Pictures/282828.png
+
 
 # Gaps and no borders
 smart_gaps on
@@ -210,7 +211,7 @@ bar {
 
 popup_during_fullscreen leave_fullscreen
 exec setxkbmap es
-exec xmodmap ~/.xmodmap-Horus
+exec sleep 5 && xmodmap ~/.Xmodmap
 exec xrandr --output DVI-I-1 --primary --auto --right-of HDMI-0 --output HDMI-0 --mode 1280x720
 bindsym $mod+shift+p move workspace to output right
 bindsym $mod+shift+o move workspace to output left
