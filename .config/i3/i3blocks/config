@@ -33,17 +33,23 @@ color=#EBDBB4
 
 [audio]
 label=
-interval=5
+interval=once
+signal=1
+
+[brightness]
+label=
+interval=once
+signal=2
 
 [bandwidth]
-instance=wlp8s0;in
+instance=wlp4s0;in
 label=
 interval=1
 
-[bandwidth]
-instance=wlp8s0;out
-label=
-interval=1
+#[bandwidth]
+#instance=wlp4s0;out
+#label=
+#interval=1
 
 [load]
 label=
@@ -51,30 +57,29 @@ interval=10
 
 [cpu]
 label=
-interval=2
+interval=10
 
 [temperature]
 instance=Core
 label=
-interval=5
+interval=10
 
 [memory]
 label=
 instance=mem;free
-interval=30
-
-[packages]
-label=
-interval=60
+interval=10
 
 [space]
 label=
-interval=30
+interval=60
 
-[battery]
-label=
-instance=0
-interval=5
+[intbattery]
+label=I 
+interval=10
+
+[extbattery]
+label=E 
+interval=10
 
 [datetime]
 label=
