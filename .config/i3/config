@@ -54,9 +54,6 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# MEMES
-bindsym $mod+q exec python /mnt/storHDD/Programming/Python/Dongertyper/dongertyper.py
-
 # Go to full-screen with whatever you have in focus (In a world with tiles and gaps, who needs alt plus tab?© [I made this accidentally, but now is copyrighted. Copyright© Kurolox 2016-2016])
 bindsym $mod+f fullscreen toggle
 
@@ -140,8 +137,8 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 #  Custom things: Extra binds, ricing purposes, fixes, etc...
 #
 
-# Screenshots and video capture with the prt scr key. Seriously, if there was only an alternative that does exactly what xfce4-screenshooter --region -i does but automatically pastes the imgur link to your clipboard, I'd kill for it...
-bindsym Print exec xfce4-screenshooter -r -i
+
+bindsym --release Print exec imgur-screenshot
 
 # Setting each workspace icon for ricing purposes. You will need awesomefont for it to work, otherwise enjoy the random squares which may or may not have letters and numbers inside!
 set $workspace1 "1 "
@@ -149,14 +146,15 @@ set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 "
 set $workspace5 "5 "
-set $workspace6 "6 "
+set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
 set $workspace9 "9 "
 set $workspace10 "10 "
 
 # Wallpaper
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id feh --bg-fill ~/Pictures/282828.png
+
 
 # Gaps and no borders
 smart_gaps on
@@ -192,7 +190,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 bar {
     position top
-    tray_output none
+    tray_output primary
     colors {
     background #282828
     separator #282828
@@ -209,45 +207,41 @@ bar {
 #
 
 popup_during_fullscreen leave_fullscreen
-exec setxkbmap es
-exec xmodmap ~/.xmodmap-Horus
-exec xrandr --output DVI-I-1 --primary --auto --right-of HDMI-0 --output HDMI-0 --mode 1280x720
 bindsym $mod+shift+p move workspace to output right
 bindsym $mod+shift+o move workspace to output left
+exec setxkbmap gb
 
-
-
-#####
-#   FOR MORE THAN ONE SCREEN: Separates the workspaces and gives 5 to each screen. Comment or remove (or just leave it) if you use one screen.
+# Special rules
 #
-workspace $workspace6 output HDMI-0
-workspace $workspace7 output HDMI-0
-workspace $workspace8 output HDMI-0
-workspace $workspace9 output HDMI-0
-workspace $workspace10 output HDMI-0
-workspace $workspace1 output DVI-I-1
-workspace $workspace2 output DVI-I-1
-workspace $workspace3 output DVI-I-1
-workspace $workspace4 output DVI-I-1
-workspace $workspace5 output DVI-I-1
-
-
-#####
-#   Autoexecs - Because launching stuff at startup is FUN!
-#
-exec i3-msg 'workspace $workspace1; exec chromium'
-exec i3-msg 'workspace $workspace2; exec mate-terminal'
-exec i3-msg 'workspace $workspace9; exec enpass'
-exec discord-canary
-#exec steam-native
-exec hexchat
-exec blueman-applet
-exec --no-startup-id compton -cCGb --backend glx --vsync opengl
+for_window [class="Arandr"] floating enable
 
 #force windows to start in a specific workspace
 
 assign [class="TeamSpeak 3"] $workspace7
-assign [class="discord"] $workspace8
 assign [class="Hexchat"] $workspace7
+assign [class="Thunderbird"] $workspace6
 assign [class="Steam"] $workspace3
+assign [class="TelegramDesktop"] $workspace7
+assign [class="discordapp.com__channels_184802320565927936_184802320565927936"] $workspace8
+#   Fn Keybinds
 
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10 && pkill -RTMIN+2 i3blocks"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10 && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioMute exec "pamixer -t && pkill -RTMIN+1 i3blocks"
+# bindsym XF86AudioMicMute
+bindsym XF86AudioRaiseVolume exec "pamixer -i 5 && pkill -RTMIN+1 i3blocks"
+bindsym XF86AudioLowerVolume exec "pamixer -d 5 && pkill -RTMIN+1 i3blocks"
+bindsym XF86Display exec "arandr"
+
+#####
+#   Autoexecs - Because launching stuff at startup is FUN!
+#
+exec sleep 3 && i3-msg 'workspace $workspace7; exec mate-terminal -e hexchat-text'
+exec sleep 4 && i3-msg 'workspace $workspace8; exec discord'
+exec sleep 5 && i3-msg 'workspace $workspace1; exec chromium'
+exec sleep 6 && thunderbird
+exec sleep 7 && telegram-desktop
+exec sleep 8 && i3-msg 'workspace $workspace1'
+exec blueman-applet
+exec nm-applet
+exec redshift
