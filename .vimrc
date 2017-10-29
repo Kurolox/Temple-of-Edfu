@@ -1,7 +1,6 @@
 " Basics
 
-syntax on                     " Enable syntax highlighting
-filetype off                  " Enable filetype detection
+filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
 highlight LineNr ctermfg=grey
@@ -56,18 +55,36 @@ let g:airline_powerline_fonts = 1
 
 " Vundle
 call vundle#begin()
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/syntastic'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-dispatch'
+Plugin 'valloric/youcompleteme'
+Plugin 'lervag/vimtex'
+Plugin '907th/vim-auto-save'
 call vundle#end() 
+
+" Syntastic - Syntax checking
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" vimtex - LaTeX support
+
+let g:vimtex_view_method = "zathura"
+let g:vimtex_compiler_latexmk = {'callback' : 0}
+let g:tex_flavor = "latex"
+
+" vim-auto-save
+
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_silent = 1  " do not display the auto-save notification
 
 " Theme
 
 colorscheme gruvbox
-
+syntax on                     " Enable syntax highlighting
 
