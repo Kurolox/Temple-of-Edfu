@@ -24,6 +24,9 @@ bindsym $mod+Shift+q kill
 # start rofi (or use dmenu if you don't have any taste like me, but I use rofi because I'm not that bad)
 bindsym $mod+d exec rofi -show run -lines 8 -width 35 -padding 0 -hide-scrollbar -bw 10 -font "xos4 Terminus 16" -rnow
 
+# Lock the screen with i3lock-fancy
+bindsym $mod+Escape exec i3lock-fancy -t "Welcome back and have a nice day."
+
 # change focus, but good luck knowing which windows is focused without borders, as you will see later!
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -145,7 +148,7 @@ set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
 set $workspace4 "4 "
-set $workspace5 "5 "
+set $workspace5 "5 "
 set $workspace6 "6 "
 set $workspace7 "7 "
 set $workspace8 "8 "
@@ -153,8 +156,7 @@ set $workspace9 "9 "
 set $workspace10 "10 "
 
 # Wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/282828.png
-
+exec --no-startup-id xsetroot -solid "#282828"
 
 # Gaps and no borders
 smart_gaps on
@@ -190,7 +192,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 bar {
     position top
-    tray_output primary
+    #tray_output primary
+    tray_output none
     colors {
     background #282828
     separator #282828
@@ -214,19 +217,20 @@ exec setxkbmap gb
 # Special rules
 #
 for_window [class="Arandr"] floating enable
-
+for_window [title="Importing Package"] floating enable # Unity editor Fix
+for_window [title="Hold On"] floating enable # Unity editor Fix
 #force windows to start in a specific workspace
 
 assign [class="TeamSpeak 3"] $workspace7
-assign [class="Hexchat"] $workspace7
 assign [class="Thunderbird"] $workspace6
 assign [class="Steam"] $workspace3
 assign [class="TelegramDesktop"] $workspace7
 assign [class="discord(.)*"] $workspace8
+assign [class="Spotify"] $workspace5
 #   Fn Keybinds
 
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10 && pkill -RTMIN+2 i3blocks"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10 && pkill -RTMIN+2 i3blocks"
+bindsym XF86MonBrightnessDown exec "light -U 5 && pkill -RTMIN+2 i3blocks"
+bindsym XF86MonBrightnessUp exec "light -A 5 && pkill -RTMIN+2 i3blocks"
 bindsym XF86AudioMute exec "pamixer -t && pkill -RTMIN+1 i3blocks"
 # bindsym XF86AudioMicMute
 bindsym XF86AudioRaiseVolume exec "pamixer -i 5 && pkill -RTMIN+1 i3blocks"
@@ -237,12 +241,7 @@ bindsym XF86Display exec "arandr"
 #   Autoexecs - Because launching stuff at startup is FUN!
 #
 
-exec sleep 2 && i3-msg 'workspace $workspace1; exec chromium'
-exec sleep 3 && i3-msg 'workspace $workspace7; exec mate-terminal -e hexchat-text'
-exec sleep 4 && thunderbird
-exec sleep 5 && telegram-desktop
-exec sleep 6 && i3-msg 'workspace $workspace8; exec discord'
-exec sleep 8 && i3-msg 'workspace $workspace1'
-exec blueman-applet
-exec nm-applet
-exec redshift
+exec i3-msg 'workspace $workspace7'
+exec sleep 1 && thunderbird
+exec sleep 1.5 && telegram-desktop
+exec sleep 2.5 && i3-msg 'workspace $workspace1'

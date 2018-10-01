@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+if wg; then
+    echo "on"
+else
+    echo "off"
+fi

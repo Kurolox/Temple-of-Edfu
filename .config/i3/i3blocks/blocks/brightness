@@ -1,5 +1,5 @@
 #!/bin/bash
 
-BACKLIGHT=$(xbacklight | cut -f1 -d ".")
+BACKLIGHT=$(light | cut -f1 -d ".")
 
 echo "${BACKLIGHT}%"

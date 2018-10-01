@@ -1,0 +1,3 @@
+#! /bin/zsh
+
+echo "$(iw dev wlp4s0 link | grep signal | cut -d " " -f 2-)"
