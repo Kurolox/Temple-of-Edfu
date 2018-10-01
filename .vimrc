@@ -62,6 +62,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'valloric/youcompleteme'
 Plugin 'lervag/vimtex'
 Plugin '907th/vim-auto-save'
+Plugin 'sudar/vim-arduino-syntax'
+Plugin 'stevearc/vim-arduino'
 call vundle#end() 
 
 " Syntastic - Syntax checking
@@ -82,6 +84,11 @@ let g:tex_flavor = "latex"
 
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_silent = 1  " do not display the auto-save notification
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
+
+" YCM
+
+let g:ycm_global_ycm_extra_conf = "/home/kuro/.vim/bundle/youcompleteme/python/ycm/ycm_extra_conf.py"
 
 " Theme
 
