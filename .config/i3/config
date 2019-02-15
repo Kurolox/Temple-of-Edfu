@@ -161,9 +161,10 @@ exec --no-startup-id xsetroot -solid "#282828"
 # Gaps and no borders
 smart_gaps on
 smart_borders on
-for_window [class="^.*"] border none
-gaps inner 12
-gaps outer 25
+#for_window [class="^.*"] border pixel 1
+default_border none
+gaps inner 10
+gaps outer 15
 
 #####
 #   Colors
@@ -226,7 +227,8 @@ assign [class="Thunderbird"] $workspace6
 assign [class="Steam"] $workspace3
 assign [class="TelegramDesktop"] $workspace7
 assign [class="discord(.)*"] $workspace8
-assign [class="Spotify"] $workspace5
+assign [class="(S|s)potify"] $workspace5
+for_window [class="Spotify"] move to workspace $workspace5
 #   Fn Keybinds
 
 bindsym XF86MonBrightnessDown exec "light -U 5 && pkill -RTMIN+2 i3blocks"
@@ -244,4 +246,6 @@ bindsym XF86Display exec "arandr"
 exec i3-msg 'workspace $workspace7'
 exec sleep 1 && thunderbird
 exec sleep 1.5 && telegram-desktop
+exec sleep 2 && spotify
 exec sleep 2.5 && i3-msg 'workspace $workspace1'
+exec sleep 5 && spotify-adkiller

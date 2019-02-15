@@ -20,4 +20,5 @@ antigen theme af-magic
 # Some exports
 
 export TERM="xterm-256color"
-
+export PIPENV_VENV_IN_PROJECT=true # Pipenv shall limit itself to the project folder
+clear
