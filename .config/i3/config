@@ -104,6 +104,9 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# Take a screenshot using the PrntScr key
+bindsym Print exec maim -s ~/Pictures/Screenshots/$(date +%s).png 
+
 # Set the title of each workspace.
 # The titles use fontawesome4. https://fontawesome.com/v4.7.0/
 set $workspace1 "1 "
