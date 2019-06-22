@@ -1,33 +1,25 @@
-#######                                                                  #
-#                   The Kurolox's Rice n' stuff vX.Y                     #
-#                                                                        #
-#    "Who needs versioning when you won't update it anyways?" -Kurolox   #
-#                                                                        #
-#                                                                 ########
-
-
-# Remember to replace the Windows key with a custom-made key of your preference (or use a sticker, if you are a pussy)
+# Set mod key for the rest of the shortcuts (Mod4 = Windows Key)
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-font pango:System San Francisco Display 10
+# Set the font used for the bar and titles. 
+# More info on the currently used font:
+# http://terminus-font.sourceforge.net/
+font pango:xos4 Terminus 12
 
-# Use Mouse+$mod to drag floating windows to their wanted position, BUT WHY WOULD YOU WANT TO USE THE MOUSE IN I3?
+# Set the mod key as the key to be held for dragging windows in floating mode
 floating_modifier $mod
 
-# start a terminal (Using mate because I'm too bad for xterm or anything like that)
-bindsym $mod+Return exec mate-terminal
+# Launch a terminal instance when pressing mod+Enter
+bindsym $mod+Return exec termite
 
-# kill focused window, or the alt+f4 for pros
+# Kill the currently focused window with mod+Q
 bindsym $mod+Shift+q kill
 
-# start rofi (or use dmenu if you don't have any taste like me, but I use rofi because I'm not that bad)
-bindsym $mod+d exec rofi -show run -lines 8 -width 35 -padding 0 -hide-scrollbar -bw 10 -font "xos4 Terminus 16" -rnow
+# Launch Rofi (a program launcher) with the mod+d shortcut.
+# The configuration file for rofi is located at ~/.config/rofi
+bindsym $mod+d exec rofi -show run
 
-# Lock the screen with i3lock-fancy
-bindsym $mod+Escape exec i3lock-fancy -t "Welcome back and have a nice day."
-
-# change focus, but good luck knowing which windows is focused without borders, as you will see later!
+# Change the currently focused tile with jkl;
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -39,13 +31,13 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# move focused window using JKL:
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-# alternatively, you can use the cursor keys
+# alternatively, you can use the cursor keys (with the Shift key held)
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -57,50 +49,25 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# Go to full-screen with whatever you have in focus (In a world with tiles and gaps, who needs alt plus tab?© [I made this accidentally, but now is copyrighted. Copyright© Kurolox 2016-2016])
+# Trigger full-screen mode on the currently focused tile
 bindsym $mod+f fullscreen toggle
 
-# change container layout (I should remove this or something. I never use stacked or anything because, ya know, 10 workspaces... And I get accidentally into stack mode and I don't know how to exit it)
-# edit: I'll just comment them out. Yay no more accidental stacks that I don't know how to get back to default unless closing/moving everything from that workspace.
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
-#bindsym $mod+e layout toggle split
-
-# toggle tiling / floating (Pussy warning: This command installs Unity and schedules your disk partitioning for installing Windows next day. Don't float.)
+# Trigger floating mode on the currently focused tile
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows (Same as before, but this one installs gnome rather than Unity.)
+# change focus between tiling and floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
 
 # restart i3
 bindsym $mod+Shift+r restart
 
-# exit i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (unfortunately, you can also use the mouse for that)
+# Set resize mode scale (10px for each press)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -110,9 +77,10 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+# Trigger resize mode
 bindsym $mod+r mode "resize"
 
-# switch to workspaces (I dare you to use the mouse for this)
+# switch to workspaces 
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
@@ -136,14 +104,8 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-#####
-#  Custom things: Extra binds, ricing purposes, fixes, etc...
-#
-
-
-bindsym --release Print exec imgur-screenshot
-
-# Setting each workspace icon for ricing purposes. You will need awesomefont for it to work, otherwise enjoy the random squares which may or may not have letters and numbers inside!
+# Set the title of each workspace.
+# The titles use fontawesome4. https://fontawesome.com/v4.7.0/
 set $workspace1 "1 "
 set $workspace2 "2 "
 set $workspace3 "3 "
@@ -155,21 +117,19 @@ set $workspace8 "8 "
 set $workspace9 "9 "
 set $workspace10 "10 "
 
-# Wallpaper
-exec --no-startup-id xsetroot -solid "#282828"
+# Set the background color
+exec --no-startup-id hsetroot -solid "#282828"
 
-# Gaps and no borders
+# Configuration exclusive to i3-gaps
+for_window [class=".*"] border pixel 1  # tiles have 1px wide borders
+gaps inner 8  # tiles have 8px gaps between them
+gaps outer 0  # tiles won't have gaps to the screen edges
+
+# Disable gaps and borders when there's only one tile
 smart_gaps on
 smart_borders on
-#for_window [class="^.*"] border pixel 1
-default_border none
-gaps inner 10
-gaps outer 15
 
-#####
-#   Colors
-#
-
+# Set the colors used in i3
 set $bg-color 	         #282828 
 set $transparent         #00000000
 set $inactive-bg-color   #111111
@@ -177,23 +137,17 @@ set $text-color          #fafaff
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #0000ff
 
-# window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
+client.focused          #ebdbb2           $bg-color          $text-color          #00ff00 #ebdbb2
+client.unfocused        $bg-color	    $inactive-bg-color $inactive-text-color #00ff00 $bg-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 
 
-#####
-#   i3 Bar (Needs i3blocks)
-#
-
-
+#i3bar configuration
 bar {
     position top
-    #tray_output primary
     tray_output none
     colors {
     background #282828
@@ -203,33 +157,24 @@ bar {
     inactive_workspace #282828 #282828 #ebdbb2
     urgent_workspace #fe8019 #fe8019 #282828
     }
+    # Use i3blocks in the bar
     status_command i3blocks -c ~/.config/i3/i3blocks/config
 }
 
-#####
 # Fixes
-#
 
 popup_during_fullscreen leave_fullscreen
 bindsym $mod+shift+p move workspace to output right
 bindsym $mod+shift+o move workspace to output left
-exec setxkbmap gb
-
-# Special rules
-#
+#Don't resize touchscreen area when multiple screens are connected
+exec xinput --map-to-output "Melfas LGD AIT Touch Controller" eDP1
+  
+# Rules for specific applications
 for_window [class="Arandr"] floating enable
-for_window [title="Importing Package"] floating enable # Unity editor Fix
-for_window [title="Hold On"] floating enable # Unity editor Fix
-#force windows to start in a specific workspace
-
-assign [class="TeamSpeak 3"] $workspace7
 assign [class="Thunderbird"] $workspace6
-assign [class="Steam"] $workspace3
 assign [class="TelegramDesktop"] $workspace7
-assign [class="discord(.)*"] $workspace8
-assign [class="(S|s)potify"] $workspace5
-for_window [class="Spotify"] move to workspace $workspace5
-#   Fn Keybinds
+
+# Fn key bindings
 
 bindsym XF86MonBrightnessDown exec "light -U 5 && pkill -RTMIN+2 i3blocks"
 bindsym XF86MonBrightnessUp exec "light -A 5 && pkill -RTMIN+2 i3blocks"
@@ -239,13 +184,11 @@ bindsym XF86AudioRaiseVolume exec "pamixer -i 5 && pkill -RTMIN+1 i3blocks"
 bindsym XF86AudioLowerVolume exec "pamixer -d 5 && pkill -RTMIN+1 i3blocks"
 bindsym XF86Display exec "arandr"
 
-#####
-#   Autoexecs - Because launching stuff at startup is FUN!
-#
+# Execute the following commands when i3 is launched
 
+exec --no-startup-id "compton -b"  # Compositor
+exec --no-startup-id "udiskie"	   # Auto-mount external drives
 exec i3-msg 'workspace $workspace7'
 exec sleep 1 && thunderbird
 exec sleep 1.5 && telegram-desktop
-exec sleep 2 && spotify
 exec sleep 2.5 && i3-msg 'workspace $workspace1'
-exec sleep 5 && spotify-adkiller

@@ -34,16 +34,6 @@ separator=false
 align=center
 full_text=|
 
-
-#[mahjong]
-#interval=once
-
-[spotify]
-label=
-interval=5
-
-[separator]
-
 [audio]
 label=
 interval=once
@@ -54,7 +44,9 @@ label=
 interval=once
 signal=2
 
+
 [separator]
+
 
 [ssid]
 interval=15
@@ -69,12 +61,8 @@ label=
 interval=1
 
 
-#[bandwidth]
-#instance=wlp4s0;out
-#label=
-#interval=1
-
 [separator]
+
 
 [load]
 label=
@@ -98,7 +86,9 @@ interval=10
 label=
 interval=60
 
+
 [separator]
+
 
 [intbattery]
 label=I 
@@ -108,7 +98,9 @@ interval=10
 label=E 
 interval=10
 
+
 [separator]
+
 
 [date]
 label=
